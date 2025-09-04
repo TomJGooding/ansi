@@ -2,6 +2,16 @@
 // Graphics
 #define ANSI_RESET "\x1b[0m"
 
+#define ANSI_BOLD        "\x1b[1m"
+#define ANSI_FAINT       "\x1b[2m"
+#define ANSI_ITALIC      "\x1b[3m"
+#define ANSI_UNDERLINE   "\x1b[4m"
+#define ANSI_BLINK_SLOW  "\x1b[5m"
+#define ANSI_BLINK_RAPID "\x1b[6m"
+#define ANSI_REVERSE     "\x1b[7m"
+#define ANSI_CONCEAL     "\x1b[8m"
+#define ANSI_CROSSED_OUT "\x1b[9m"
+
 //////////////////////////////////////////////////////////////////////////////
 // Colors
 #define ANSI_BLACK   "\x1b[30m"
