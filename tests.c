@@ -1,5 +1,6 @@
-#include <stdio.h>
 #include "ansi.h"
+#include <stdio.h>
+#include <unistd.h>
 
 void test_clear_and_home() {
     printf(ANSI_CLEAR ANSI_HOME);
@@ -73,13 +74,29 @@ void test_graphics() {
     printf("\n");
 }
 
+void test_clear_line() {
+    printf("Clear line:\n");
+    for (int i = 100; i >= 0; i -= 10) {
+        printf("%3d%% ", i);
+        int num_bars = i / 2;
+        for (int j = 0; j < num_bars; j++) {
+            printf("|");
+        }
+        fflush(stdout);
+        usleep(200 * 1000);
+        printf(ANSI_CLEAR_LINE "\r");
+    }
+    printf("%3d%%\n", 0);
+}
+
 int main() {
     test_clear_and_home();
 
     test_foreground_colors();
     test_background_colors();
-
     test_default_colors();
-
+    printf("\n");
     test_graphics();
+    printf("\n");
+    test_clear_line();
 }

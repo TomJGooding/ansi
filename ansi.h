@@ -59,4 +59,5 @@
 
 //////////////////////////////////////////////////////////////////////////////
 // Erase Functions
-#define ANSI_CLEAR "\x1b[2J"
+#define ANSI_CLEAR      "\x1b[2J"
+#define ANSI_CLEAR_LINE "\x1b[2K"
