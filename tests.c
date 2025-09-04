@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include "ansi.h"
 
+void test_clear_and_home() {
+    printf(ANSI_CLEAR ANSI_HOME);
+}
+
 void test_foreground_colors() {
     printf("Foreground colors:\n");
 
@@ -64,7 +68,10 @@ void test_graphics() {
 }
 
 int main() {
+    test_clear_and_home();
+
     test_foreground_colors();
     test_background_colors();
+
     test_graphics();
 }

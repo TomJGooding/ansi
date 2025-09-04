@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////////////
-// Graphics
+// Graphics (not all widely supported)
 #define ANSI_RESET "\x1b[0m"
 
 #define ANSI_BOLD        "\x1b[1m"
@@ -49,3 +49,11 @@
 #define ANSI_BRIGHT_MAGENTA_BACKGROUND "\x1b[105m"
 #define ANSI_BRIGHT_CYAN_BACKGROUND    "\x1b[106m"
 #define ANSI_BRIGHT_WHITE_BACKGROUND   "\x1b[107m"
+
+//////////////////////////////////////////////////////////////////////////////
+// Cursor Controls
+#define ANSI_HOME "\x1b[H"
+
+//////////////////////////////////////////////////////////////////////////////
+// Erase Functions
+#define ANSI_CLEAR "\x1b[2J"
