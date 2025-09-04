@@ -3,7 +3,7 @@
 #include <unistd.h>
 
 void test_clear_and_home() {
-    printf(ANSI_CLEAR ANSI_HOME);
+    printf(ANSI_CLEAR ANSI_CURSOR_HOME);
 }
 
 void test_foreground_colors() {
@@ -90,7 +90,9 @@ void test_clear_line() {
 }
 
 void test_cursor_controls() {
-    printf("Cursor controls:\n");
+    printf("Cursor controls:\n\n");
+
+    printf(" Winner: ?\n\n");
 
     printf("   |   |   \n");
     printf("---|---|---\n");
@@ -98,46 +100,51 @@ void test_cursor_controls() {
     printf("---|---|---\n");
     printf("   |   |   \n");
 
-    printf(ANSI_CURSOR_UP(5));
-    printf(ANSI_CURSOR_RIGHT(10));
+    // X turn
+    printf(ANSI_CURSOR_UP(5) ANSI_CURSOR_RIGHT(10));
     printf("\bX");
     fflush(stdout);
     usleep(500 * 1000);
-
+    // O turn
     printf(ANSI_CURSOR_LEFT(8));
     printf("\bO");
     fflush(stdout);
     usleep(500 * 1000);
-
+    // X turn
     printf(ANSI_CURSOR_DOWN(4));
     printf("\bX");
     fflush(stdout);
     usleep(500 * 1000);
-
-    printf(ANSI_CURSOR_UP(2));
-    printf(ANSI_CURSOR_RIGHT(4));
+    // O turn
+    printf(ANSI_CURSOR_UP(2) ANSI_CURSOR_RIGHT(4));
     printf("\bO");
     fflush(stdout);
     usleep(500 * 1000);
-
-    printf(ANSI_CURSOR_RIGHT(4));
-    printf(ANSI_CURSOR_DOWN(2));
+    // X turn
+    printf(ANSI_CURSOR_RIGHT(4) ANSI_CURSOR_DOWN(2));
     printf("\bX");
     fflush(stdout);
     usleep(500 * 1000);
-
+    // O turn
     printf(ANSI_CURSOR_UP(2));
     printf("\bO");
     fflush(stdout);
     usleep(500 * 1000);
-
-    printf(ANSI_CURSOR_DOWN(2));
-    printf(ANSI_CURSOR_LEFT(4));
+    // X turn - wins!
+    printf(ANSI_CURSOR_DOWN(2) ANSI_CURSOR_LEFT(4));
     printf("\bX");
     fflush(stdout);
     usleep(500 * 1000);
 
-    printf(ANSI_CURSOR_DOWN(2) "\r");
+    // Update winner
+    printf(ANSI_CURSOR_POSITION(18, 11));
+    printf("\bX");
+    fflush(stdout);
+    usleep(500 * 1000);
+    // Move cursor to bottom
+    printf(ANSI_CURSOR_POSITION(26, 1));
+    fflush(stdout);
+    usleep(500 * 1000);
 }
 
 int main() {

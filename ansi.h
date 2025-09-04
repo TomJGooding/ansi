@@ -55,12 +55,14 @@
 
 //////////////////////////////////////////////////////////////////////////////
 // Cursor Controls
-#define ANSI_HOME "\x1b[H"
+#define ANSI_CURSOR_HOME "\x1b[H"
 
-#define ANSI_CURSOR_UP(n)    "\x1b[" #n "A"
-#define ANSI_CURSOR_DOWN(n)  "\x1b[" #n "B"
-#define ANSI_CURSOR_RIGHT(n) "\x1b[" #n "C"
-#define ANSI_CURSOR_LEFT(n)  "\x1b[" #n "D"
+#define ANSI_CURSOR_POSITION(line, column)  "\x1b[" #line ";" #column "H"
+
+#define ANSI_CURSOR_UP(lines)      "\x1b[" #lines   "A"
+#define ANSI_CURSOR_DOWN(lines)    "\x1b[" #lines   "B"
+#define ANSI_CURSOR_RIGHT(columns) "\x1b[" #columns "C"
+#define ANSI_CURSOR_LEFT(columns)  "\x1b[" #columns "D"
 
 //////////////////////////////////////////////////////////////////////////////
 // Erase Functions
