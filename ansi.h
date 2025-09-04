@@ -57,6 +57,11 @@
 // Cursor Controls
 #define ANSI_HOME "\x1b[H"
 
+#define ANSI_CURSOR_UP(n)    "\x1b[" #n "A"
+#define ANSI_CURSOR_DOWN(n)  "\x1b[" #n "B"
+#define ANSI_CURSOR_RIGHT(n) "\x1b[" #n "C"
+#define ANSI_CURSOR_LEFT(n)  "\x1b[" #n "D"
+
 //////////////////////////////////////////////////////////////////////////////
 // Erase Functions
 #define ANSI_CLEAR      "\x1b[2J"

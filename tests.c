@@ -89,6 +89,57 @@ void test_clear_line() {
     printf("%3d%%\n", 0);
 }
 
+void test_cursor_controls() {
+    printf("Cursor controls:\n");
+
+    printf("   |   |   \n");
+    printf("---|---|---\n");
+    printf("   |   |   \n");
+    printf("---|---|---\n");
+    printf("   |   |   \n");
+
+    printf(ANSI_CURSOR_UP(5));
+    printf(ANSI_CURSOR_RIGHT(10));
+    printf("\bX");
+    fflush(stdout);
+    usleep(500 * 1000);
+
+    printf(ANSI_CURSOR_LEFT(8));
+    printf("\bO");
+    fflush(stdout);
+    usleep(500 * 1000);
+
+    printf(ANSI_CURSOR_DOWN(4));
+    printf("\bX");
+    fflush(stdout);
+    usleep(500 * 1000);
+
+    printf(ANSI_CURSOR_UP(2));
+    printf(ANSI_CURSOR_RIGHT(4));
+    printf("\bO");
+    fflush(stdout);
+    usleep(500 * 1000);
+
+    printf(ANSI_CURSOR_RIGHT(4));
+    printf(ANSI_CURSOR_DOWN(2));
+    printf("\bX");
+    fflush(stdout);
+    usleep(500 * 1000);
+
+    printf(ANSI_CURSOR_UP(2));
+    printf("\bO");
+    fflush(stdout);
+    usleep(500 * 1000);
+
+    printf(ANSI_CURSOR_DOWN(2));
+    printf(ANSI_CURSOR_LEFT(4));
+    printf("\bX");
+    fflush(stdout);
+    usleep(500 * 1000);
+
+    printf(ANSI_CURSOR_DOWN(2) "\r");
+}
+
 int main() {
     test_clear_and_home();
 
@@ -99,4 +150,6 @@ int main() {
     test_graphics();
     printf("\n");
     test_clear_line();
+    printf("\n");
+    test_cursor_controls();
 }
