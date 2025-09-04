@@ -53,6 +53,12 @@ void test_background_colors() {
     printf("\n");
 }
 
+void test_default_colors() {
+    printf("Default foreground/background:\n");
+    printf(ANSI_RED_BACKGROUND ANSI_YELLOW "Before");
+    printf(ANSI_DEFAULT_BACKGROUND ANSI_DEFAULT_COLOR " After\n");
+}
+
 void test_graphics() {
     printf("Graphics (not all widely supported):\n");
     printf(ANSI_BOLD "bold " ANSI_RESET);
@@ -72,6 +78,8 @@ int main() {
 
     test_foreground_colors();
     test_background_colors();
+
+    test_default_colors();
 
     test_graphics();
 }

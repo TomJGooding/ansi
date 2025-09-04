@@ -14,6 +14,9 @@
 
 //////////////////////////////////////////////////////////////////////////////
 // Colors
+#define ANSI_DEFAULT_COLOR      "\x1b[39m"
+#define ANSI_DEFAULT_BACKGROUND "\x1b[49m"
+
 #define ANSI_BLACK   "\x1b[30m"
 #define ANSI_RED     "\x1b[31m"
 #define ANSI_GREEN   "\x1b[32m"
