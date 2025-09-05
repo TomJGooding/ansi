@@ -1,3 +1,6 @@
+#ifndef INCLUDE_ANSI_H
+#define INCLUDE_ANSI_H
+
 //////////////////////////////////////////////////////////////////////////////
 // Graphics (not all widely supported)
 #define ANSI_RESET "\x1b[0m"
@@ -57,7 +60,7 @@
 // Cursor Controls
 #define ANSI_CURSOR_HOME "\x1b[H"
 
-#define ANSI_CURSOR_POSITION(line, column)  "\x1b[" #line ";" #column "H"
+#define ANSI_CURSOR_POSITION(line, column) "\x1b[" #line ";" #column "H"
 
 #define ANSI_CURSOR_UP(lines)      "\x1b[" #lines   "A"
 #define ANSI_CURSOR_DOWN(lines)    "\x1b[" #lines   "B"
@@ -68,3 +71,5 @@
 // Erase Functions
 #define ANSI_CLEAR      "\x1b[2J"
 #define ANSI_CLEAR_LINE "\x1b[2K"
+
+#endif  // INCLUDE_ANSI_H
